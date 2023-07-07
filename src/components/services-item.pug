@@ -1,0 +1,6 @@
+mixin service-item(img, title, description, href = "#")
+    a(href=href class="services__item") 
+        .services__item-photo 
+            img(src=require(img.src), alt=img.title class="services__item-photo-img")
+        h3.services__item-title= title
+        p.services__item-description= description

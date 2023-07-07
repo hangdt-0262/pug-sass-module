@@ -1,0 +1,122 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+body {
+    font-size: 16px;
+    font-family: $primary-font-family;
+    color: #666666;
+    line-height: 1.6;
+    font-weight: 400;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.button {
+    display: inline-block;
+    text-align: center;
+    color: $text-light-color;
+    border-radius: 9999px;
+    font-size: 1.063rem;
+    line-height: 1.25;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+    -webkit-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    -o-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    -webkit-transition-duration: .2s;
+    -o-transition-duration: .2s;
+    transition-duration: .2s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $btn-gray-1-color;
+    }
+
+    &--lg {
+        padding: .875rem 1.25rem;
+    }
+
+    &--sm {
+        padding: 0.25rem 0.75rem;
+    }
+
+    &--gray {
+        background-color: $btn-gray-color;
+        color: $text-gray-1-color;
+
+        &:hover {
+            color: $text-light-color;
+        }
+    }
+
+    &--gray-1 {
+        background-color: $btn-gray-1-color;
+
+        &:hover {
+            background-color: $btn-black-color;
+        }
+    }
+
+    &--blue {
+        background-color: $btn-blue-color;
+    }
+
+    &--black {
+        background-color: $btn-black-color;
+    }
+
+    &--green {
+        background-color: $btn-green-color;
+    }
+}
+
+.container {
+    padding: 0 6rem;
+
+    &--main {
+        margin: 6rem 0;
+    }
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -.035em;
+}
+
+@include responsive_max_1400 {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+@include responsive_max_1280 {
+    .title {
+        font-size: 2.625rem;
+    }
+}
+
+@include responsive_max_1024 {
+    .container {
+        padding: 0 1.25rem;
+
+        &--main {
+            margin: 4rem 0 !important;
+        }
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+}
+
+@include responsive_max_768 {
+    .container {
+        &--main {
+            margin: 2.5rem 0 !important;
+        }
+    }
+}

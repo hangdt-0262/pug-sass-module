@@ -1,0 +1,227 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title Homepage | BentoBox
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv="X-UA-Compatible" content="ie=edge")
+  link(rel="icon", href=require("../../assets/img/favicon.png"), type="image/x-icon")
+  link(href=require('../../assets/scss/styles.scss') rel='stylesheet')
+include ../components/title
+include ../components/header-link
+include ../components/services-item
+include ../components/brands-item
+include ../components/footer-item
+include ../icons/instagram
+include ../icons/twitter
+include ../icons/linkedin
+include ../icons/facebook
+body#app
+  .container.top-alert 
+    .top-alert__content 
+      span.top-alert__text EXCLUSIVE: Get up to three free months of BentoBox.*
+      a(href="#" class="top-alert__link") Claim the offer 
+    .top-alert__cancel 
+      img(src=require("../../assets/img/icons/cancel.png"), alt="cancel button" class="top-alert__cancel-img")
+  header.header 
+    nav.container.header__menu
+      .header__logo 
+        img(src=require("../../assets/img/bentobox-logo.svg"), alt="BentoBox logo" class="header__logo-img")
+      ul.header__links
+        - const headerLinks = [{ content: "Why Bento", hasIcon: false }, {content: "Products"}, {content: "Restaurant Type"}, {content: "Pricing", hasIcon: false}, {content: "Resources"}]
+        each headerLink in headerLinks 
+          +header-link(headerLink.content, headerLink.hasIcon)
+      .header__actions 
+        a(href="#" class="header__action-link")
+          img(src=require("../../assets/img/icons/phone-icon.webp"), alt="Phone icon" class="header__action-link-img") 
+        a(href="#" class="header__action-link header__action-link--only-text")
+          span Sign In
+        a(href="#" class="button button--lg button--blue")
+          span Get Started
+      a(href="#header--sm").header__menu-btn
+        img(src=require("../../assets/img/icons/hamburger.png"), alt="Menu icon" class="header__menu-btn-icon header__menu-btn-icon")
+  header#header--sm.header.header--sm
+    #header__menu--sm.container.header__menu.header__menu--sm
+      .header__top
+        .header__logo 
+          img(src=require("../../assets/img/bentobox-logo.svg"), alt="BentoBox logo" class="header__logo-img")
+        a(href="#app").header__menu-btn
+          img(src=require("../../assets/img/icons/cancel-black.png"), alt="Cancel icon" class="header__menu-btn-icon")
+      .header__content
+        ul.header__links.header__links--sm
+          - const _headerLinks = [{ content: "Why Bento", hasIcon: false }, {content: "Products"}, {content: "Restaurant Type"}, {content: "Pricing", hasIcon: false}, {content: "Resources"}]
+          each headerLink in _headerLinks 
+            +header-link(headerLink.content, headerLink.hasIcon)
+        .header__actions.header__actions--sm
+          a(href="#" class="header__action-link")
+            img(src=require("../../assets/img/icons/phone-icon.webp"), alt="Phone icon" class="header__action-link-img") 
+          a(href="#" class="header__action-link header__action-link--only-text")
+            span Sign In
+          a(href="#" class="button button--lg button--blue")
+            span Get Started
+  main 
+    section.banner 
+      .container.banner__container 
+        .banner__content 
+          +title("Meet the tech that makes restaurant magic happen.")
+          p.banner__description From website design to online ordering and payment solutions, BentoBox helps restaurants around the world create better experiences for their customers and their staff.
+          a(href="#" class="button button--lg button--black") Get started 
+        figure.banner__photo
+          img(src=require("../../assets/img/homepage_graphic.webp"), alt="Homepage graphic" class="banner__photo-img")
+    section.services 
+      .container.container--main.services__container 
+        .services__head 
+          span.services__pre-title The Marketing & Commerce Platform
+          +title("At your service for service and beyond.", "services__title")
+          p.services__sub-title With BentoBox, enjoy 24/7 access to a full line-up of tools built to give restaurant owners and operators the support they need to succeed in every area of their business.
+        .services__content 
+          .services__list 
+            - 
+              const servicesList = [
+                {img: {src: "../../assets/img/build_presence.webp", alt: "Stand Out"}, title: "Stand Out", description: "Create an online experience that catches peoples' attention and keeps them coming back."},
+                {img: {src: "../../assets/img/diversify_revenue.webp", alt: "Sell"}, title: "Sell", description: "Bring in money 24/7 with commission-free ordering, ticket and merchandise sales and more."},
+                {img: {src: "../../assets/img/engage_diners.webp", alt: "Engage"}, title: "Engage", description: "Capture diner data directly, then put it to work with automated marketing tools."},
+                {img: {src: "../../assets/img/increase_efficiency.webp", alt: "Operate"}, title: "Operate", description: "Back of house, meet front of house, with a platform that connects all the pieces."}
+              ]
+            each servicesItem in servicesList 
+              +service-item(servicesItem.img, servicesItem.title, servicesItem.description)
+    section.short-learn 
+      .container.container--main.short-learn__container 
+        .short-learn__photo 
+          img(src=require("../../assets/img/nubeluz.webp"), alt="Nubeluz" class="short-learn__photo-img")
+        .short-learn__content 
+          .short-learn__bentobox-icon
+            img(src=require("../../assets/img/build_presence.webp"), alt="BentoBox" class="short-learn__bentobox-icon-img")
+          .short-learn__textbox 
+            +title("Always be present", "short-learn__title")
+            p.short-learn__description Rank higher in searches. Win over more visitors. Make updates on the fly. As powerful as they are beautiful, our customized websites are built to work extra hard for restaurants worldwide.
+            a.button.button--lg.button--green.short-learn__button Learn more
+    section.short-learn 
+      .container.container--main.short-learn__container 
+        .short-learn__content 
+          .short-learn__bentobox-icon
+            img(src=require("../../assets/img/diversify_revenue.webp"), alt="BentoBox" class="short-learn__bentobox-icon-img")
+          .short-learn__textbox 
+            +title("Make money 24/7", "short-learn__title")
+            p.short-learn__description With a website that’s always open for business. From commission-free ordering to ticket sales and more, BentoBox makes it easy to drive more business online, then keep the profits that are rightfully yours.
+            a.button.button--lg.button--green.short-learn__button Learn more
+        .short-learn__photo.short-learn__photo--sell
+          img(src=require("../../assets/img/sell.webp"), alt="Sell" class="short-learn__photo-img")
+    section.brands
+      .container.container--main.brands__container 
+        h2.brands__title Loved and trusted by 
+        .brands__list 
+          - 
+            const brandsList = [
+              {img: {name: "brands_Lilia.webp", alt: "Lilia brand"}, href: "#"},
+              {img: {name: "brands_Souvla.webp", alt: "Souvla brand"}, href: "#"},
+              {img: {name: "brands_atla.webp", alt: "Atla brand"}, href: "#"},
+              {img: {name: "brands_TheBazaar.webp", alt: "The Bazaar brand"}, href: "#"},
+              {img: {name: "brands_YoungJoni.webp", alt: "Young Joni brand"}, href: "#"},
+              {img: {name: "brands_GramercyTavern.webp", alt: "Gramercy Tavern brand"}, href: "#"},
+            ]
+          each brandsItem in brandsList 
+            +brand-item(brandsItem.href, brandsItem.img)
+    section.harborview
+      .container.container--main.harborview__container 
+        .harborview__content 
+          p.harborview__description Onboarding to BentoBox was very, very easy. Lots of support and communication. But now we’re up and running, and we haven't needed as much support.
+          .harborview__actions 
+            .harborview__action
+              figure.harborview__action-photo 
+                img(src=require("../../assets/img/harborview.webp"), alt="Harborview icon" class="harborview__action-photo-img")
+              .harborview__buttons 
+                a(href="#" class="button button--sm button--gray") Restaurant Websites 
+                a(href="#" class="button button--sm button--gray") Online Ordering
+                a(href="#" class="button button--sm button--gray") Events Management
+                a(href="#" class="button button--sm button--gray") Pre-Order & Catering
+            .harborview__action.harborview__action--only-button
+              a(href="#" class="button button--lg button--gray-1") Case Study
+    section.video-introduce
+      .container.container--main.video-introduce__container 
+        .video-introduce__content 
+          iframe(
+            src="https://player.vimeo.com/video/757310206?loop=false&autoplay=false&muted=false&gesture=media&playsinline=true&byline=false&portrait=false&title=false&speed=true&transparent=false&customControls=true" 
+            frameborder="0"
+            allowfullscreen
+            class="video-introduce__video"
+          )
+          .video-introduce__control 
+            button.video-introduce__control-play
+              img(src=require("../../assets/img/icons/play.png"), alt="Play button" class="video-introduce__control-play-img")
+    section.connect-dots
+      .container.container--main.connect-dots__container 
+        img(src=require("../../assets/img/deco-right.svg"), alt="Deco right" class="connect-dots__img connect-dots__img--right")
+        img(src=require("../../assets/img/deco-left.svg"), alt="Deco left" class="connect-dots__img connect-dots__img--left")
+        .connect-dots__content 
+          .connect-dots__photo 
+            img(src=require("../../assets/img/favicon.png"), alt="BentoBox logo" class="connect-dots__photo-img")
+          +title("Connect the operational dots", "connect-dots__title")
+          p.connect-dots__description BentoBox makes it easy to integrate the systems your team already relies on.#[br]Because why mess with a good thing?
+    section.quick-demo 
+      .container.container--main.quick-demo__container 
+        .quick-demo__content 
+          .quick-demo__text 
+            +title("Up for a quick demo?", "quick-demo__title")
+            p.quick-demo__sub-title See how BentoBox can help your restaurant do more.
+          .quick-demo__action 
+            a(href="#" class="button button--lg button--black") Book a demo
+  footer.footer
+    .container.footer__container
+      .footer__list
+        - 
+          const footerItems = [
+            {
+              title: "BentoBox", 
+              links: [
+                {content: "Life at BentoBox"},
+                {content: "Careers"},
+                {content: "Customer Stories"},
+                {content: "Platform Status"},
+                {content: "DEI"}
+              ]
+            },
+            {
+              title: "Contact",
+              links: [
+                {content: "Sign Up"},
+                {content: "Call Now"},
+                {content: "Watch The Demo"},
+                {content: "Refer a Restaurant"},
+                {content: "Become a Partner"},
+                {content: "Referral Terms"}
+              ]
+            },
+            {
+              title: "Support",
+              links: [
+                {content: "FAQs"},
+                {content: "Contact Us"},
+                {content: "Help Center"},
+                {content: "Privacy Policy"},
+                {content: "Terms of Service"}              
+              ]
+            }
+          ]
+        each footerItem in footerItems 
+          +footer-item(footerItem.title, footerItem.links)
+        .footer__item 
+          h2.footer__item-title Connect 
+          ul.footer__item-links.footer__item-links--icon
+            - 
+              const connectLinks = [
+                {icon: "instagram-icon"},
+                {icon: "twitter-icon"},
+                {icon: "linkedin-icon"},
+                {icon: "facebook-icon"}
+              ]
+            each connectLink in connectLinks 
+              li.footer__item-link.footer__item-link--icon
+                a(href="#", class="footer__item-link-a footer__item-link-a--icon")
+                  +#{connectLink.icon}
+          
+
+
+
+
+
+

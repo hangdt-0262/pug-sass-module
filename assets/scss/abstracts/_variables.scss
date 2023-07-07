@@ -1,0 +1,50 @@
+// Fonts
+@font-face {
+    font-family: 'CircularStd';
+    src: url("../../fonts/CircularStd-Bold.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url("../../fonts/CircularStd-500.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url("../../fonts/CircularStd-Medium.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'CircularStd';
+    src: url("../../fonts/CircularStd-Book.ttf");
+    font-weight: 300;
+}
+
+$primary-font-family: CircularStd, ui-sans-serif, system-ui, sans-serif;
+
+// Colors
+$bg-red-color: #5f1107;
+$bg-yellow-color: #fff7ec;
+$bg-yellow-1-color: #fec241;
+$bg-yellow-2-color: #fffbf5;
+$bg-orange-color: #f15541;
+$bg-white-color: white;
+$text-light-color: #fff;
+$text-dark-color: #1a1a1a;
+$text-yellow-color: #fec241;
+$text-gray-color: #696970;
+$text-gray-1-color: #73738c;
+$btn-blue-color: #19a4ad;
+$btn-black-color: #1c212e;
+$btn-green-color: #5bca81;
+$btn-gray-color: #f3f3f3;
+$btn-gray-1-color: #30323b;
+$btn-control-color: #19a4ad;
+$border-light-color: #e5e5e6;
+$border-orange-color: #faae9c;
+
+// Style
+$drop-shadow: drop-shadow(0 10px 8px rgba(0,0,0,.04)) drop-shadow(0 4px 10px rgba(0,0,0,.1));

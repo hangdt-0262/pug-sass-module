@@ -1,0 +1,51 @@
+$res_max_1400: "only screen and (max-width: 1399.5px)";
+$res_max_1280: "only screen and (max-width: 1279.5px)";
+$res_max_1024: "only screen and (max-width: 1023.5px)";
+$res_max_768: "only screen and (max-width: 767.5px)";
+
+@mixin responsive_max_1400() {
+    @media #{$res_max_1400} {
+        @content;
+    }
+}
+
+@mixin responsive_max_1280() {
+    @media #{$res_max_1280} {
+        @content;
+    }
+}
+
+@mixin responsive_max_1024() {
+    @media #{$res_max_1024} {
+        @content;
+    }
+}
+
+@mixin responsive_max_768() {
+    @media #{$res_max_768} {
+        @content;
+    }
+}
+
+@mixin hover_link($lineHeight, $bgColor) {
+    position: relative;
+
+    &:after {
+        content: "";
+        height: $lineHeight;
+        background-color: $bgColor;
+        -webkit-transition: width .5s;
+        -o-transition: width .5s;
+        transition: width .5s;
+        display: block;
+        width: 0;
+        position: absolute;
+        bottom: 0;
+    }
+
+    &:hover {
+        &:after {
+            width: 100%;
+        }
+    }
+}

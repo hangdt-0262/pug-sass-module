@@ -1,0 +1,7 @@
+mixin footer-item(title, links)
+    .footer__item 
+        h2.footer__item-title= title
+        ul.footer__item-links
+            each link in links 
+                li.footer__item-link 
+                    a(href=link.href ? link.href : "#", class="footer__item-link-a")= link.content 

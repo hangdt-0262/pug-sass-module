@@ -1,0 +1,4 @@
+mixin brand-item(href, img)
+    a(href=href class="brands__item") 
+        figure.brands__photo 
+            img(src=require("../../assets/img/" + img.name), alt=img.alt class="brands__photo-img")

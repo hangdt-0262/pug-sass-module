@@ -1,0 +1,6 @@
+mixin header-link(content, hasIcon = true, href = "#")
+    li.header__link 
+        a(href=href class="header__link-a") 
+            span= content
+        if hasIcon 
+            img(src=require("../../assets/img/icons/up-chevron.png"), alt="Up Chevron icon" class="header__link-img")
