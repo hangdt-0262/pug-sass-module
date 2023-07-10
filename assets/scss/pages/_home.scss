@@ -2,19 +2,11 @@
 @use "../abstracts/mixins" as *;
 
 .top-alert {
+  @include flexbox(space-between);
   background-color: $bg-red-color;
   font-size: 1.063rem;
   text-align: center;
   color: $text-light-color;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
   line-height: 1.25;
@@ -27,10 +19,7 @@
   }
 
   &__content {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 1rem;
+    @include flexbox($justify-content: space-between, $gap: 1rem);
     max-width: -webkit-fit-content;
     max-width: -moz-fit-content;
     max-width: fit-content;
@@ -43,9 +32,7 @@
   }
 
   &__cancel {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    @include flexbox;
 
     &-img {
       height: 16px;
@@ -69,23 +56,13 @@
   }
 
   &__menu {
+    @include flexbox(space-between);
     background-color: $bg-yellow-color;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
     height: 92px;
   }
 
   &__logo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    @include flexbox;
 
     &-img {
       width: 186px;
@@ -96,10 +73,7 @@
   }
 
   &__links {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 2rem;
+    @include flexbox($gap: 2rem);
   }
 
   &__link {
@@ -125,13 +99,7 @@
   }
 
   &__actions {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    gap: 1.5rem;
+    @include flexbox($gap: 1.5rem);
   }
 
   &__action-link {
@@ -175,8 +143,7 @@
   &__container {
     padding-top: 2rem;
     padding-bottom: 2.5rem;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    @include grid($grid-template-columns: repeat(2, minmax(0, 1fr)));
   }
 
   &__content {
@@ -241,12 +208,7 @@
   }
 
   &__list {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    gap: 2rem;
+    @include flexbox($flex-wrap: wrap, $gap: 2rem);
   }
 
   &__item {
@@ -259,9 +221,7 @@
     flex: 0 0 calc(50% - 8rem - 1rem);
 
     &-photo {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
+      @include flexbox;
 
       &-img {
         height: 64px;
@@ -280,7 +240,7 @@
       width: fit-content;
       margin-top: 1.75rem;
       font-size: 2.875rem;
-      font-weight: 700;
+      font-weight: $header-font-weight;
       line-height: 1.17;
       letter-spacing: -.035em;
       text-align: center;
@@ -300,15 +260,11 @@
 
 .short-learn {
   &__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    @include grid($grid-template-columns: 1fr 1fr, $gap: 5rem);
   }
 
   &__photo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    @include flexbox;
 
     &-img {
       width: 100%;
@@ -319,25 +275,11 @@
 
   &__content {
     padding: 1.5rem 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+    @include flexbox($justify-content: center, $flex-direction: column);
   }
 
   &__bentobox-icon {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+    @include flexbox(center);
 
     &-img {
       width: 90px;
@@ -375,14 +317,7 @@
   }
 
   &__list {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+    @include flexbox($justify-content: center, $flex-wrap: wrap);
     margin: 0 -14px;
     margin-top: 2rem;
   }
@@ -443,7 +378,7 @@
     letter-spacing: -.035em;
     line-height: 1.17;
     color: $text-light-color;
-    font-weight: 300;
+    font-weight: $secondary-font-weight;
     quotes: "\201C" "\201D" "\2018" "\2019";
 
     &::before {
@@ -459,13 +394,8 @@
   }
 
   &__actions {
+    @include flexbox($flex-wrap: wrap, $gap: 1.25rem);
     margin-top: 6rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    gap: 1.25rem;
   }
 
   &__action {
@@ -484,16 +414,8 @@
   }
 
   &__buttons {
+    @include flexbox($justify-content: start, $flex-wrap: wrap, $gap: 0.625rem);
     margin-top: 5rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 0.625rem;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
   }
 
   &__photo {
@@ -536,16 +458,7 @@
     width: 114px;
     border: 0;
     border-radius: 50%;
-    display: block;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+    @include flexbox(center);
   }
 
   &__control-play-img {
@@ -591,15 +504,7 @@
     background-color: $bg-white-color;
     border-radius: 50%;
     margin: 0 auto;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+    @include flexbox(center);
 
     &-img {
       width: 60px;
@@ -627,22 +532,13 @@
 .quick-demo {
   &__content {
     background-color: $bg-orange-color;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 5rem;
     max-width: 1600px;
     margin: 0 auto;
     border-radius: 1.5rem;
     padding: 3rem;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
     position: relative;
     z-index: 3;
+    @include flexbox($justify-content: space-between, $gap: 5rem);
   }
 
   &__text {
@@ -670,8 +566,7 @@
   &__list {
     max-width: 1600px;
     margin: 0 -2rem;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    @include grid($grid-template-columns: repeat(5, 1fr));
   }
 
   &__item {
@@ -695,12 +590,7 @@
       margin-top: 1.75rem;
 
       &--icon {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        gap: 0.875rem;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+        @include flexbox($justify-content: inherit, $flex-wrap: wrap, $gap: 0.875rem);
       }
     }
 
@@ -718,29 +608,18 @@
 
         &--icon {
           fill: $text-dark-color;
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-align: center;
-          -ms-flex-align: center;
-          align-items: center;
-
+          @include flexbox;
           @include hover_link(0px, $text-gray-color);
         }
       }
 
       &--icon {
+        @include flexbox(center);
         margin-top: 0 !important;
         background-color: $bg-white-color;
         width: 40px;
         height: 40px;
         border-radius: 9999px;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
         transition-property: color, background-color, border-light-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
         -webkit-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
         -o-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
@@ -767,7 +646,7 @@
   }
 }
 
-@include responsive_max_1280 {
+@include responsive($max_1280) {
   .header {
     &__logo-img {
       width: 144px;
@@ -822,8 +701,7 @@
 
   .footer {
     &__list {
-      grid-template-columns: repeat(3, 1fr);
-      row-gap: 1.75rem;
+      @include grid($grid-template-columns: repeat(3, 1fr), $row-gap: 1.75rem)
     }
 
     &__item {
@@ -832,7 +710,7 @@
   }
 }
 
-@include responsive_max_1024 {
+@include responsive($max_1024) {
   .header {
     &--sm:target {
       display: block;
@@ -851,36 +729,27 @@
       height: 80px;
 
       &--sm {
+        @include flexbox($flex-direction: column, $justify-content: start);
         height: 100%;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-        justify-content: flex-start;
         background-color: $bg-yellow-2-color;
       }
     }
 
     &__top {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
+      @include flexbox($justify-content: space-between, $flex-direction: row);
       width: 100%;
       height: 5rem;
     }
 
     &__content {
-      margin-left: 0;
-      margin-right: auto;
-      width: 100%;
+      display: none;
+
+      &--sm {
+        display: block;
+        margin-left: 0;
+        margin-right: auto;
+        width: 100%;
+      }
     }
 
     &__links {
@@ -888,7 +757,7 @@
 
       &--sm {
         display: inline-block;
-        font-weight: 700;
+        font-weight: $header-font-weight;
         font-size: inherit;
         padding-top: 1rem;
         padding-bottom: 1rem;
@@ -897,12 +766,7 @@
     }
 
     &__link {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
+      @include flexbox(space-between);
 
       &-a {
         font-size: 1.5rem;
@@ -919,20 +783,13 @@
       display: none;
 
       &--sm {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        gap: 1.5rem;
+        @include flexbox($flex-wrap: wrap, $gap: 1.5rem);
         margin-top: 1rem;
       }
     }
 
     &__menu-btn {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
+      @include flexbox;
     }
   }
 
@@ -1049,14 +906,7 @@
   .quick-demo {
     &__content {
       padding: 3rem 1.25rem;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      gap: 1.75rem;
-      -webkit-box-align: start;
-      -ms-flex-align: start;
-      align-items: flex-start;
+      @include flexbox($align-items: start, $flex-direction: column, $gap: 1.75rem);
     }
 
     &__title {
@@ -1071,25 +921,17 @@
   }
 }
 
-@include responsive_max_768 {
+@include responsive($max_768) {
   .top-alert {
     &__content {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-align: start;
-      -ms-flex-align: start;
-      align-items: start;
-      gap: .75rem;
+      @include flexbox($align-items: start, $flex-direction: column, $gap: .75rem);
       text-align: left;
     }
   }
 
   .banner {
     &__container {
-      grid-template-columns: none;
-      gap: 1rem;
+      @include grid($gap: 1rem);
     }
 
     &__description {
@@ -1129,7 +971,7 @@
         line-height: 1.17;
         margin-top: 1.25rem;
       }
-  
+
       &-description {
         font-size: .875rem;
         line-height: 1.3125;
@@ -1140,8 +982,7 @@
 
   .short-learn {
     &__container {
-      grid-template-columns: none;
-      gap: 0;
+      @include grid;
     }
 
     &__photo {
@@ -1166,7 +1007,7 @@
 
     &__photo {
       padding: 0.375rem;
-      
+
       &-img {
         height: 44px;
       }
@@ -1254,8 +1095,7 @@
     }
 
     &__list {
-      grid-template-columns: none;
-      row-gap: 1.75rem;
+      @include grid($grid-template-columns: none, $row-gap: 1.75rem);
       margin: 0;
       margin-top: 1.25rem;
     }

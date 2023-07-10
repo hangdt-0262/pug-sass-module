@@ -1,0 +1,26 @@
+mixin header-menu (isSmall = false)
+    nav.container.header__menu(class=isSmall ? "header__menu--sm" : "")
+        .header__top
+            .header__logo 
+                img(src=require("../../assets/img/bentobox-logo.svg"), alt="BentoBox logo" class="header__logo-img")
+            a(href=isSmall ? "#app" : "#header--sm").header__menu-btn
+                if isSmall
+                    img(src=require("../../assets/img/icons/cancel-black.png"), alt="Cancel icon" class="header__menu-btn-icon")
+                else 
+                    img(src=require("../../assets/img/icons/hamburger.png"), alt="Menu icon" class="header__menu-btn-icon header__menu-btn-icon")
+        if !isSmall
+            ul.header__links(class=isSmall ? "header__links--sm" : "")
+                each headerLink in headerLinks 
+                    +header-link(headerLink.content, headerLink.hasIcon)
+        .header__content(class=isSmall ? "header__content--sm" : "")
+            if isSmall 
+                ul.header__links(class=isSmall ? "header__links--sm" : "")
+                    each headerLink in headerLinks 
+                        +header-link(headerLink.content, headerLink.hasIcon)
+            .header__actions(class=isSmall ? "header__actions--sm" : "")
+                a(href="#" class="header__action-link")
+                    img(src=require("../../assets/img/icons/phone-icon.webp"), alt="Phone icon" class="header__action-link-img") 
+                a(href="#" class="header__action-link header__action-link--only-text")
+                    span Sign In
+                a(href="#" class="button button--lg button--blue")
+                    span Get Started

@@ -6,7 +6,7 @@ body {
     font-family: $primary-font-family;
     color: #666666;
     line-height: 1.6;
-    font-weight: 400;
+    font-weight: $primary-font-weight;
     overflow-x: hidden;
 }
 
@@ -82,24 +82,24 @@ a {
 
 .title {
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: $header-font-weight;
     line-height: 1;
     letter-spacing: -.035em;
 }
 
-@include responsive_max_1400 {
+@include responsive($max_1400) {
     .container {
         padding: 0 2rem;
     }
 }
 
-@include responsive_max_1280 {
+@include responsive($max_1280) {
     .title {
         font-size: 2.625rem;
     }
 }
 
-@include responsive_max_1024 {
+@include responsive($max_1024) {
     .container {
         padding: 0 1.25rem;
 
@@ -113,7 +113,7 @@ a {
     }
 }
 
-@include responsive_max_768 {
+@include responsive($max_768) {
     .container {
         &--main {
             margin: 2.5rem 0 !important;

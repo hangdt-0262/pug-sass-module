@@ -11,10 +11,13 @@ include ../components/header-link
 include ../components/services-item
 include ../components/brands-item
 include ../components/footer-item
+include ../components/learn-more-btn
+include ../components/header-menu
 include ../icons/instagram
 include ../icons/twitter
 include ../icons/linkedin
 include ../icons/facebook
+include ../constant/variables
 body#app
   .container.top-alert 
     .top-alert__content 
@@ -23,41 +26,9 @@ body#app
     .top-alert__cancel 
       img(src=require("../../assets/img/icons/cancel.png"), alt="cancel button" class="top-alert__cancel-img")
   header.header 
-    nav.container.header__menu
-      .header__logo 
-        img(src=require("../../assets/img/bentobox-logo.svg"), alt="BentoBox logo" class="header__logo-img")
-      ul.header__links
-        - const headerLinks = [{ content: "Why Bento", hasIcon: false }, {content: "Products"}, {content: "Restaurant Type"}, {content: "Pricing", hasIcon: false}, {content: "Resources"}]
-        each headerLink in headerLinks 
-          +header-link(headerLink.content, headerLink.hasIcon)
-      .header__actions 
-        a(href="#" class="header__action-link")
-          img(src=require("../../assets/img/icons/phone-icon.webp"), alt="Phone icon" class="header__action-link-img") 
-        a(href="#" class="header__action-link header__action-link--only-text")
-          span Sign In
-        a(href="#" class="button button--lg button--blue")
-          span Get Started
-      a(href="#header--sm").header__menu-btn
-        img(src=require("../../assets/img/icons/hamburger.png"), alt="Menu icon" class="header__menu-btn-icon header__menu-btn-icon")
-  header#header--sm.header.header--sm
-    #header__menu--sm.container.header__menu.header__menu--sm
-      .header__top
-        .header__logo 
-          img(src=require("../../assets/img/bentobox-logo.svg"), alt="BentoBox logo" class="header__logo-img")
-        a(href="#app").header__menu-btn
-          img(src=require("../../assets/img/icons/cancel-black.png"), alt="Cancel icon" class="header__menu-btn-icon")
-      .header__content
-        ul.header__links.header__links--sm
-          - const _headerLinks = [{ content: "Why Bento", hasIcon: false }, {content: "Products"}, {content: "Restaurant Type"}, {content: "Pricing", hasIcon: false}, {content: "Resources"}]
-          each headerLink in _headerLinks 
-            +header-link(headerLink.content, headerLink.hasIcon)
-        .header__actions.header__actions--sm
-          a(href="#" class="header__action-link")
-            img(src=require("../../assets/img/icons/phone-icon.webp"), alt="Phone icon" class="header__action-link-img") 
-          a(href="#" class="header__action-link header__action-link--only-text")
-            span Sign In
-          a(href="#" class="button button--lg button--blue")
-            span Get Started
+    +header-menu
+  #header--sm.header.header--sm
+    +header-menu(true)
   main 
     section.banner 
       .container.banner__container 
@@ -75,13 +46,6 @@ body#app
           p.services__sub-title With BentoBox, enjoy 24/7 access to a full line-up of tools built to give restaurant owners and operators the support they need to succeed in every area of their business.
         .services__content 
           .services__list 
-            - 
-              const servicesList = [
-                {img: {src: "../../assets/img/build_presence.webp", alt: "Stand Out"}, title: "Stand Out", description: "Create an online experience that catches peoples' attention and keeps them coming back."},
-                {img: {src: "../../assets/img/diversify_revenue.webp", alt: "Sell"}, title: "Sell", description: "Bring in money 24/7 with commission-free ordering, ticket and merchandise sales and more."},
-                {img: {src: "../../assets/img/engage_diners.webp", alt: "Engage"}, title: "Engage", description: "Capture diner data directly, then put it to work with automated marketing tools."},
-                {img: {src: "../../assets/img/increase_efficiency.webp", alt: "Operate"}, title: "Operate", description: "Back of house, meet front of house, with a platform that connects all the pieces."}
-              ]
             each servicesItem in servicesList 
               +service-item(servicesItem.img, servicesItem.title, servicesItem.description)
     section.short-learn 
@@ -94,7 +58,7 @@ body#app
           .short-learn__textbox 
             +title("Always be present", "short-learn__title")
             p.short-learn__description Rank higher in searches. Win over more visitors. Make updates on the fly. As powerful as they are beautiful, our customized websites are built to work extra hard for restaurants worldwide.
-            a.button.button--lg.button--green.short-learn__button Learn more
+            +learn-more-btn
     section.short-learn 
       .container.container--main.short-learn__container 
         .short-learn__content 
@@ -103,22 +67,13 @@ body#app
           .short-learn__textbox 
             +title("Make money 24/7", "short-learn__title")
             p.short-learn__description With a website that’s always open for business. From commission-free ordering to ticket sales and more, BentoBox makes it easy to drive more business online, then keep the profits that are rightfully yours.
-            a.button.button--lg.button--green.short-learn__button Learn more
+            +learn-more-btn
         .short-learn__photo.short-learn__photo--sell
           img(src=require("../../assets/img/sell.webp"), alt="Sell" class="short-learn__photo-img")
     section.brands
       .container.container--main.brands__container 
         h2.brands__title Loved and trusted by 
         .brands__list 
-          - 
-            const brandsList = [
-              {img: {name: "brands_Lilia.webp", alt: "Lilia brand"}, href: "#"},
-              {img: {name: "brands_Souvla.webp", alt: "Souvla brand"}, href: "#"},
-              {img: {name: "brands_atla.webp", alt: "Atla brand"}, href: "#"},
-              {img: {name: "brands_TheBazaar.webp", alt: "The Bazaar brand"}, href: "#"},
-              {img: {name: "brands_YoungJoni.webp", alt: "Young Joni brand"}, href: "#"},
-              {img: {name: "brands_GramercyTavern.webp", alt: "Gramercy Tavern brand"}, href: "#"},
-            ]
           each brandsItem in brandsList 
             +brand-item(brandsItem.href, brandsItem.img)
     section.harborview
@@ -130,10 +85,8 @@ body#app
               figure.harborview__action-photo 
                 img(src=require("../../assets/img/harborview.webp"), alt="Harborview icon" class="harborview__action-photo-img")
               .harborview__buttons 
-                a(href="#" class="button button--sm button--gray") Restaurant Websites 
-                a(href="#" class="button button--sm button--gray") Online Ordering
-                a(href="#" class="button button--sm button--gray") Events Management
-                a(href="#" class="button button--sm button--gray") Pre-Order & Catering
+                each harborviewButton in harborviewButtons 
+                  a(href=harborviewButton.href class="button button--sm button--gray") #{harborviewButton.content}
             .harborview__action.harborview__action--only-button
               a(href="#" class="button button--lg button--gray-1") Case Study
     section.video-introduce
@@ -168,57 +121,16 @@ body#app
   footer.footer
     .container.footer__container
       .footer__list
-        - 
-          const footerItems = [
-            {
-              title: "BentoBox", 
-              links: [
-                {content: "Life at BentoBox"},
-                {content: "Careers"},
-                {content: "Customer Stories"},
-                {content: "Platform Status"},
-                {content: "DEI"}
-              ]
-            },
-            {
-              title: "Contact",
-              links: [
-                {content: "Sign Up"},
-                {content: "Call Now"},
-                {content: "Watch The Demo"},
-                {content: "Refer a Restaurant"},
-                {content: "Become a Partner"},
-                {content: "Referral Terms"}
-              ]
-            },
-            {
-              title: "Support",
-              links: [
-                {content: "FAQs"},
-                {content: "Contact Us"},
-                {content: "Help Center"},
-                {content: "Privacy Policy"},
-                {content: "Terms of Service"}              
-              ]
-            }
-          ]
         each footerItem in footerItems 
           +footer-item(footerItem.title, footerItem.links)
         .footer__item 
           h2.footer__item-title Connect 
           ul.footer__item-links.footer__item-links--icon
-            - 
-              const connectLinks = [
-                {icon: "instagram-icon"},
-                {icon: "twitter-icon"},
-                {icon: "linkedin-icon"},
-                {icon: "facebook-icon"}
-              ]
             each connectLink in connectLinks 
               li.footer__item-link.footer__item-link--icon
-                a(href="#", class="footer__item-link-a footer__item-link-a--icon")
+                a(href="#" class="footer__item-link-a footer__item-link-a--icon")
                   +#{connectLink.icon}
-          
+
 
 
 
